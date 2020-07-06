@@ -1,6 +1,25 @@
 # Telebucket
 
-Persist telemetry messages in MongoDB using bucket model.
+Persist telemetry messages in NoSQL document database using bucket model.
+
+## Table of Contents
+
+* [Description](#description)
+* [Running](#running)
+* [Configuration](#configuration)
+
+## Description
+
+Application reads SenML-like messages from RabbitMQ queue and stores it in MongoDB, aggregating
+records which share name and date of arrival (processing) timestamp.
+
+User can publish a message using MQTT and `mosquitto_pub`:
+
+```shell
+$ mosquitto_pub -u user -P user -t telebucket/device -m '[{ "n": "name", "v": 23 }]'
+```
+
+The bucket stored within MongoDB may look as following:
 
 ```
 {
@@ -23,16 +42,30 @@ Persist telemetry messages in MongoDB using bucket model.
 }
 ```
 
+## Running
+
+Use [`docker-compose.yml`](./docker-compose.yml) to setup development environment (RabbitMQ and
+MongoDB).
+
+```shell
+$ ./gradlew clean build
+$ java -jar build/libs/telebucket-jar-with-dependencies.jar
+```
+
 ## Configuration
 
-* `telebucket.rabbit-host`
-* `telebucket.rabbit-port`
-* `telebucket.rabbit-username`
-* `telebucket.rabbit-password`
-* `telebucket.rabbit-exchange`
-* `telebucket.rabbit-exchange-type`
-* `telebucket.rabbit-binding-routing-key`
-* `telebucket.rabbit-queue`
-* `telebucket.mongo-uri`
-* `telebucket.mongo-database`
-* `telebucket.bucket-size`
+|               JVM option                |        default value        |
+| --------------------------------------- | --------------------------- |
+| `telebucket.rabbit-host`                | `localhost`                 |
+| `telebucket.rabbit-port`                | `5672`                      |
+| `telebucket.rabbit-username`            | `user`                      |
+| `telebucket.rabbit-password`            | `user`                      |
+| `telebucket.rabbit-exchange`            | `amq.topic`                 |
+| `telebucket.rabbit-exchange-type`       | `topic`                     |
+| `telebucket.rabbit-binding-routing-key` | `telebucket.*`              |
+| `telebucket.rabbit-queue`               | `telebucket.v1`             |
+| `telebucket.mongo-uri`                  | `mongodb://localhost:27017` |
+| `telebucket.mongo-database`             | `telebucket`                |
+| `telebucket.bucket-size`                | `200`                       |
+
+The meanings of above configuration properties are pretty self-explanatory :D.
