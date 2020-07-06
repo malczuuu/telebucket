@@ -1,0 +1,44 @@
+plugins {
+    id "java"
+    id "com.github.johnrengelman.shadow" version "5.2.0"
+    id "com.github.sherter.google-java-format" version "0.8"
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation("com.rabbitmq:amqp-client:5.9.0")
+    implementation("org.mongodb:mongodb-driver-sync:4.0.2")
+
+    implementation("com.fasterxml.jackson.core:jackson-databind:2.10.2")
+
+    implementation("org.slf4j:slf4j-api:1.7.29")
+    runtimeOnly("ch.qos.logback:logback-classic:1.2.3")
+
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.5.2")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.5.2")
+}
+
+shadowJar {
+    manifest {
+        attributes(
+                "Main-Class": "org.example.telebucket.Application"
+        )
+    }
+    archiveClassifier.set("jar-with-dependencies")
+}
+build.dependsOn(shadowJar)
+
+artifacts {
+    archives shadowJar
+}
+
+googleJavaFormat {
+    toolVersion = "1.7"
+}
+
+test {
+    useJUnitPlatform()
+}
