@@ -1,4 +1,4 @@
-package org.example.telebucket.model;
+package io.github.malczuuu.telebucket.model;
 
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonParser;

@@ -1,4 +1,4 @@
-package org.example.telebucket;
+package io.github.malczuuu.telebucket;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 

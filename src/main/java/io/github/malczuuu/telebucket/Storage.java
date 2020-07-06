@@ -1,16 +1,16 @@
-package org.example.telebucket;
+package io.github.malczuuu.telebucket;
 
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.model.Filters;
 import com.mongodb.client.model.UpdateOptions;
 import com.mongodb.client.model.Updates;
+import io.github.malczuuu.telebucket.entity.BucketEntity;
+import io.github.malczuuu.telebucket.entity.RecordEntity;
+import io.github.malczuuu.telebucket.model.Record;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneOffset;
 import org.bson.conversions.Bson;
-import org.example.telebucket.entity.BucketEntity;
-import org.example.telebucket.entity.RecordEntity;
-import org.example.telebucket.model.Record;
 
 public class Storage {
 

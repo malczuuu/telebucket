@@ -1,4 +1,4 @@
-package org.example.telebucket;
+package io.github.malczuuu.telebucket;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -14,6 +14,10 @@ import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
 import com.rabbitmq.client.DefaultConsumer;
 import com.rabbitmq.client.Envelope;
+import io.github.malczuuu.telebucket.common.ObjectMapperFactory;
+import io.github.malczuuu.telebucket.common.Settings;
+import io.github.malczuuu.telebucket.entity.BucketEntity;
+import io.github.malczuuu.telebucket.model.Pack;
 import java.io.IOException;
 import java.time.Clock;
 import java.time.Instant;
@@ -23,10 +27,6 @@ import java.util.concurrent.TimeoutException;
 import org.bson.codecs.configuration.CodecRegistries;
 import org.bson.codecs.configuration.CodecRegistry;
 import org.bson.codecs.pojo.PojoCodecProvider;
-import org.example.telebucket.common.ObjectMapperFactory;
-import org.example.telebucket.common.Settings;
-import org.example.telebucket.entity.BucketEntity;
-import org.example.telebucket.model.Pack;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

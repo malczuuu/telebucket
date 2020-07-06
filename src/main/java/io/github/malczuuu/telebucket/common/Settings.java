@@ -1,4 +1,4 @@
-package org.example.telebucket.common;
+package io.github.malczuuu.telebucket.common;
 
 import java.util.Properties;
 

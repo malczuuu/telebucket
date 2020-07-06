@@ -1,4 +1,4 @@
-package org.example.telebucket.common;
+package io.github.malczuuu.telebucket.common;
 
 /** A simple escaping tool used to format string value in toString methods and in logging. */
 public class Escape {

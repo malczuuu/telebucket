@@ -1,12 +1,12 @@
-package org.example.telebucket.entity;
+package io.github.malczuuu.telebucket.entity;
 
+import io.github.malczuuu.telebucket.common.Escape;
 import java.util.ArrayList;
 import java.util.List;
 import org.bson.codecs.pojo.annotations.BsonCreator;
 import org.bson.codecs.pojo.annotations.BsonId;
 import org.bson.codecs.pojo.annotations.BsonProperty;
 import org.bson.types.ObjectId;
-import org.example.telebucket.common.Escape;
 
 public class BucketEntity {
 

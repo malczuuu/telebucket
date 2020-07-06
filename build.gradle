@@ -24,7 +24,7 @@ dependencies {
 shadowJar {
     manifest {
         attributes(
-                "Main-Class": "org.example.telebucket.Application"
+                "Main-Class": "io.github.malczuuu.telebucket.Application"
         )
     }
     archiveClassifier.set("jar-with-dependencies")

@@ -1,4 +1,4 @@
-package org.example.telebucket.model;
+package io.github.malczuuu.telebucket.model;
 
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonParser;
@@ -9,13 +9,13 @@ import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import io.github.malczuuu.telebucket.common.Escape;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.Base64;
 import java.util.List;
 import java.util.Objects;
-import org.example.telebucket.common.Escape;
 
 @JsonSerialize(using = Record.Serializer.class)
 @JsonDeserialize(using = Record.Deserializer.class)
