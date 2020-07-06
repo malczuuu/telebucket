@@ -50,7 +50,7 @@ MongoDB).
 
 ```shell
 $ ./gradlew clean build
-$ java -jar build/libs/telebucket-jar-with-dependencies.jar
+$ java -jar build/libs/telebucket-1.0.0-SNAPSHOT-jar-with-dependencies.jar
 ```
 
 ## Configuration
