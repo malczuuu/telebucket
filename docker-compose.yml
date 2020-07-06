@@ -16,9 +16,9 @@ services:
       - 127.0.0.1:8883:8883
       - 127.0.0.1:15672:15672
     volumes:
-      - ./environment/rabbitmq/definitions.json:/etc/rabbitmq/definitions.json:ro
-      - ./environment/rabbitmq/enabled_plugins:/etc/rabbitmq/enabled_plugins:ro
-      - ./environment/rabbitmq/rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf:ro
+      - ./devenv/rabbitmq/definitions.json:/etc/rabbitmq/definitions.json:ro
+      - ./devenv/rabbitmq/enabled_plugins:/etc/rabbitmq/enabled_plugins:ro
+      - ./devenv/rabbitmq/rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf:ro
       - rabbitmq_data:/var/lib/rabbitmq
 
 volumes:
