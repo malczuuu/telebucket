@@ -10,8 +10,9 @@ Persist telemetry messages in NoSQL document database using bucket model.
 
 ## Description
 
-Application reads SenML-like messages from RabbitMQ queue and stores it in MongoDB, aggregating
-records which share name and date of arrival (processing) timestamp.
+Application reads SenML-like messages (without support for base fields) from RabbitMQ queue and
+stores it in MongoDB, aggregating records which share name and date of arrival (processing)
+timestamp.
 
 User can publish a message using MQTT and `mosquitto_pub`:
 
