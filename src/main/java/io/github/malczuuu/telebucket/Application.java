@@ -16,6 +16,7 @@ import com.rabbitmq.client.DefaultConsumer;
 import com.rabbitmq.client.Envelope;
 import io.github.malczuuu.telebucket.common.ObjectMapperFactory;
 import io.github.malczuuu.telebucket.common.Settings;
+import io.github.malczuuu.telebucket.core.Storage;
 import io.github.malczuuu.telebucket.entity.BucketEntity;
 import io.github.malczuuu.telebucket.model.Pack;
 import java.io.IOException;

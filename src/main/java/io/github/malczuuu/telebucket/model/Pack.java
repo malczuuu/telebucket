@@ -9,7 +9,9 @@ import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
@@ -20,16 +22,31 @@ import java.util.stream.Stream;
 @JsonDeserialize(using = Pack.Deserializer.class)
 public class Pack implements Iterable<Record> {
 
+  public static Pack of(Record... records) {
+    return new Pack(Arrays.asList(records));
+  }
+
+  public static Pack of(Collection<Record> records) {
+    return new Pack(records);
+  }
+
   public static Pack empty() {
+    if (EMPTY == null) {
+      synchronized (Pack.class) {
+        if (EMPTY == null) {
+          EMPTY = new Pack(Collections.emptyList());
+        }
+      }
+    }
     return EMPTY;
   }
 
-  private static final Pack EMPTY = new Pack(Collections.emptyList());
+  private static Pack EMPTY = null;
 
   private final List<Record> records;
 
-  public Pack(List<Record> records) {
-    this.records = records;
+  private Pack(Collection<Record> records) {
+    this.records = new ArrayList<>(records);
   }
 
   public Pack resolve(double acquisitionTime) {
@@ -46,7 +63,7 @@ public class Pack implements Iterable<Record> {
     return Collections.unmodifiableList(records);
   }
 
-  private Record getRecord(int i) {
+  public Record getRecord(int i) {
     return getRecords().get(i);
   }
 
@@ -54,11 +71,11 @@ public class Pack implements Iterable<Record> {
     return records.stream();
   }
 
-  private boolean isEmpty() {
+  public boolean isEmpty() {
     return records.isEmpty();
   }
 
-  private int size() {
+  public int size() {
     return records.size();
   }
 
