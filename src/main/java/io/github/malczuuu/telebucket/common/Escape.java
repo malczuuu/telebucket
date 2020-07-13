@@ -6,9 +6,9 @@ public class Escape {
   private static Escape escape;
 
   public static Escape getEscape() {
-    if (escape != null) {
+    if (escape == null) {
       synchronized (Escape.class) {
-        if (escape != null) {
+        if (escape == null) {
           escape = new Escape();
         }
       }
