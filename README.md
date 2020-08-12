@@ -1,5 +1,11 @@
 # Telebucket
 
+Some research about efficient time-series MongoDB schema design, based on following three articles:
+
+1. [Time Series Data and MongoDB: Part 1 – An Introduction](https://www.mongodb.com/blog/post/time-series-data-and-mongodb-part-1-introduction)
+2. [Time Series Data and MongoDB: Part 2 – Schema Design Best Practices](https://www.mongodb.com/blog/post/time-series-data-and-mongodb-part-2-schema-design-best-practices)
+3. [Time Series Data and MongoDB: Part 3 – Querying, Analyzing, and Presenting Time-Series Data](https://www.mongodb.com/blog/post/time-series-data-and-mongodb-part-3--querying-analyzing-and-presenting-timeseries-data)
+
 Persist telemetry messages in NoSQL document database using bucket model.
 
 ## Table of Contents
